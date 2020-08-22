@@ -1,0 +1,39 @@
+<%- include("../partials/header") %>
+
+
+    <div class="container">
+        <div class="add">
+            <div>
+                Edit Team Task
+            </div>
+            <form action="/teamtodo/<%=todo._id%>?_method=PUT" method="POST" id="myform">
+                <div class=" form-group ">
+                    <label for="Name ">Task Name</label>
+                    <input type="text" class="form-control " id="name " name="task_name" value="<%=todo.task_name%>">
+                </div>
+
+                <div class=" form-group ">
+                    <label for="Name ">Expiry Date</label>
+                    <input type="date" class="form-control " id="name " name="expiry" value="<%=date%>">
+                </div>
+
+                <div class="radio">
+                    <label><input type="radio" name="completion" value="pending" checked>Pending</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="completion" value="completed">Completed</label>
+                </div>
+
+                <div class=" form-group ">
+                    <label for="Name ">Expiry Time</label>
+                    <input type="time" class="form-control " id="name " name="time" value="<%=todo.expiry.getHours()%>:<%=todo.expiry.getMinutes()%>">
+                </div>
+                <div>
+                    <button type="submit" id="submit" class="btn btn-warning ">Update</button>
+                </div>
+                <p id="required"></p>
+            </form>
+        </div>
+    </div>
+
+    <%- include("../partials/footer") %>

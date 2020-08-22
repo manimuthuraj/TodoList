@@ -1,0 +1,75 @@
+<%- include("../partials/header") %>
+    <div class="container">
+        <div class="">
+            <table class="table table-bordered">
+                <h4>Active List</h4>
+                <thead>
+                    <tr>
+                        <th>Task Name</th>
+                        <th>Completion status</th>
+                        <th>Expiry on</th>
+                        <th>Created By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%todo.forEach(function(x){%>
+                        <tr>
+                            <td>
+                                <%=x.task_name%>
+                                    <form id="delete" action="/teamtodo/<%=x._id%>?_method=DELETE" method="post">
+                                        <button class="btn btn-danger btn-xs">DELETE</button>
+                                    </form>
+                            </td>
+                            <td>
+                                <%=x.completion%>
+                            </td>
+                            <td>
+                                <%=x.expiry%>
+                                    <a href="/teamtodo/<%=x._id%>/edit" class="btn btn-xs btn-primary">Edit</a>
+                            </td>
+                            <td>
+                                <%=x.user.username%>
+                            </td>
+                        </tr>
+                </tbody>
+                <%})%>
+            </table>
+            <a href="/teamtodo/add" class="btn btn-primary">Add</a>
+        </div>
+        <div class="">
+            <table class="table table-bordered">
+                <h4>Expried Tasks</h4>
+                <thead>
+                    <tr>
+                        <th>Task Name</th>
+                        <th>Completion status</th>
+                        <th>Expiry on</th>
+                        <th>Created By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%todoexpried.forEach(function(x){%>
+                        <tr>
+                            <td>
+                                <%=x.task_name%>
+                                    <form id="delete" action="/teamtodo/<%=x._id%>?_method=DELETE" method="post">
+                                        <button class="btn btn-danger btn-xs">DELETE</button>
+                                    </form>
+                            </td>
+                            <td>
+                                <%=x.completion%>
+                            </td>
+                            <td>
+                                <%=x.expiry%>
+                                    <a href="/teamtodo/<%=x._id%>/edit" class="btn btn-xs btn-primary">Edit</a>
+                            </td>
+                            <td>
+                                <%=x.user.username%>
+                            </td>
+                        </tr>
+
+                </tbody>
+                <%})%>
+            </table>
+        </div>
+        <%- include("../partials/footer") %>
