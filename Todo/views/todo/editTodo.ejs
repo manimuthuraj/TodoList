@@ -10,12 +10,12 @@
             <form action="/todo/<%=todo._id%>?_method=PUT" method="POST" id="myform">
                 <div class=" form-group ">
                     <label for="Name ">Task Name</label>
-                    <input type="text" class="form-control " id="name " name="task_name" value="<%=todo.task_name%>">
+                    <input type="text" class="form-control " id="name " required name="task_name" value="<%=todo.task_name%>">
                 </div>
 
                 <div class=" form-group ">
                     <label for="Name ">Expiry Date</label>
-                    <input type="date" class="form-control " id="name " name="expiry" value="<%=date%>">
+                    <input type="date" class="form-control " id="name " required name="expiry" value="<%=date%>">
                 </div>
 
                 <div class="radio">
@@ -27,7 +27,7 @@
 
                 <div class=" form-group ">
                     <label for="Name ">Expiry Time</label>
-                    <input type="time" class="form-control " id="name " name="time" value="<%=todo.expiry.getHours()%>:<%=todo.expiry.getMinutes()%>">
+                    <input type="time" class="form-control " id="name " required name="time" value="<%=todo.expiry.getHours()%>:<%=todo.expiry.getMinutes()%>">
                 </div>
                 <div>
                     <button type="submit" id="submit" class="btn btn-warning ">Update</button>
