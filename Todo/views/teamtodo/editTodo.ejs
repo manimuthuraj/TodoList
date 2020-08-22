@@ -1,10 +1,11 @@
 <%- include("../partials/header") %>
+    <link rel="stylesheet" href="/css/add.css" type="text/css">
 
-
-    <div class="container">
-        <div class="add">
+    <h2 id="name">TEAM TODO</h2>
+    <div class="container row">
+        <div class="add col-md-8">
             <div>
-                Edit Team Task
+                <h3>Edit Team Task</h3>
             </div>
             <form action="/teamtodo/<%=todo._id%>?_method=PUT" method="POST" id="myform">
                 <div class=" form-group ">
@@ -29,7 +30,7 @@
                     <input type="time" class="form-control " id="name " name="time" value="<%=todo.expiry.getHours()%>:<%=todo.expiry.getMinutes()%>">
                 </div>
                 <div>
-                    <button type="submit" id="submit" class="btn btn-warning ">Update</button>
+                    <button type="submit" id="submit" class="btn btn-primary ">Update</button>
                 </div>
                 <p id="required"></p>
             </form>

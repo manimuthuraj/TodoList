@@ -1,9 +1,12 @@
 <%- include("../partials/header") %>
+    <link rel="stylesheet" href="/css/todo.css" type="text/css">
+
+    <h2 id="personal">Personal TODO</h2>
     <div class="container row">
-        <a href="/teamtodo" class="btn btn-primary">Team Todo List</a>
-        <div class="col-md-6">
-            <table class="table table-bordered">
-                <h4>Active List</h4>
+        <a href="/teamtodo" class="btn btn-primary" id="team">Click to see Team Todo List</a>
+        <div class="active">
+            <table class="table table-bordered ">
+                <h3 class="name">Active List</h3>
                 <thead>
                     <tr>
                         <th>Task Name</th>
@@ -17,7 +20,7 @@
                             <td>
                                 <%=x.task_name%>
                                     <form id="delete" action="/todo/<%=x._id%>?_method=DELETE" method="post">
-                                        <button class="btn btn-danger btn-xs">DELETE</button>
+                                        <button class="btn btn-primary btn-xs">DELETE</button>
                                     </form>
                             </td>
                             <td>
@@ -31,11 +34,15 @@
                 </tbody>
                 <%})%>
             </table>
-            <a href="/todo/add" class="btn btn-primary">Add</a>
+            <%if(Object.keys(todo).length === 0){%>
+                <h3 id="no"> NO TODO YET </h3>
+                <%}%>
+                    <%- include("../partials/footer") %>
+                        <a href="/todo/add" class="btn btn-primary">Add</a>
         </div>
-        <div class="col-md-6">
+        <div id="expried">
             <table class="table table-bordered">
-                <h4>Expried Tasks</h4>
+                <h4 class="name">Expried Tasks</h4>
                 <thead>
                     <tr>
                         <th>Task Name</th>
@@ -49,7 +56,7 @@
                             <td>
                                 <%=x.task_name%>
                                     <form id="delete" action="/todo/<%=x._id%>?_method=DELETE" method="post">
-                                        <button class="btn btn-danger btn-xs">DELETE</button>
+                                        <button class="btn btn-primary btn-xs">DELETE</button>
                                     </form>
                             </td>
                             <td>
@@ -60,9 +67,11 @@
                                     <a href="/todo/<%=x._id%>/edit" class="btn btn-xs btn-primary">Edit</a>
                             </td>
                         </tr>
-
                 </tbody>
                 <%})%>
             </table>
+            <%if(Object.keys(todoexpried).length === 0){%>
+                <h3 id="no"> NO EXPRIED TODO YET </h3>
+                <%}%>
+                    <%- include("../partials/footer") %>
         </div>
-        <%- include("../partials/footer") %>

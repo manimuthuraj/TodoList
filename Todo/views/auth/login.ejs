@@ -1,10 +1,11 @@
 <%- include("../partials/header") %>
+    <link rel="stylesheet" href="/css/login.css" type="text/css">
+    <h1 id="heading">Todo List</h1>
     <div class="container row">
-        <div class="add col-md-6">
+        <div class="add col-md-6" id="form">
             <div>
-                Login
+                <h2>Login</h2>
             </div>
-
             <form action="/login" method="POST" id="myform">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -16,11 +17,11 @@
                     <input type="password" required class="form-control" id="password" name="password" placeholder="password">
                 </div>
                 <div>
-                    <button id="submit" type="submit" class="btn btn-warning ">Signin</button>
+                    <button id="submit" type="submit" class="btn btn-primary ">Signin</button>
                 </div>
                 <p id="required"></p>
             </form>
+            <h4>If You don't have account, <a href="/register">Register here</a></h4>
         </div>
-        <h4>If You Dont have account, <a href="/register">Register here</a></h4>
     </div>
     <%- include("../partials/footer") %>

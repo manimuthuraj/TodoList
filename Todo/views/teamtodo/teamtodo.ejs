@@ -1,8 +1,10 @@
 <%- include("../partials/header") %>
+    <link rel="stylesheet" href="/css/todo.css" type="text/css">
+    <h2 id="personal">TEAM TODO</h2>
     <div class="container">
-        <div class="">
+        <div class="active">
             <table class="table table-bordered">
-                <h4>Active List</h4>
+                <h4 class="name">Active List</h4>
                 <thead>
                     <tr>
                         <th>Task Name</th>
@@ -17,7 +19,7 @@
                             <td>
                                 <%=x.task_name%>
                                     <form id="delete" action="/teamtodo/<%=x._id%>?_method=DELETE" method="post">
-                                        <button class="btn btn-danger btn-xs">DELETE</button>
+                                        <button class="btn btn-primary btn-xs">DELETE</button>
                                     </form>
                             </td>
                             <td>
@@ -33,12 +35,15 @@
                         </tr>
                 </tbody>
                 <%})%>
+                    <%if(Object.keys(todo).length === 0){%>
+                        <h3 id="no"> NO TODO YET </h3>
+                        <%}%>
             </table>
             <a href="/teamtodo/add" class="btn btn-primary">Add</a>
         </div>
-        <div class="">
+        <div id="expried">
             <table class="table table-bordered">
-                <h4>Expried Tasks</h4>
+                <h4 class="name">Expried Tasks</h4>
                 <thead>
                     <tr>
                         <th>Task Name</th>
@@ -53,7 +58,7 @@
                             <td>
                                 <%=x.task_name%>
                                     <form id="delete" action="/teamtodo/<%=x._id%>?_method=DELETE" method="post">
-                                        <button class="btn btn-danger btn-xs">DELETE</button>
+                                        <button class="btn btn-primary btn-xs">DELETE</button>
                                     </form>
                             </td>
                             <td>
@@ -71,5 +76,9 @@
                 </tbody>
                 <%})%>
             </table>
+            <%if(Object.keys(todoexpried).length === 0){%>
+                <h3 id="no"> NO EXPRIED TODO YET </h3>
+                <%}%>
+
         </div>
         <%- include("../partials/footer") %>

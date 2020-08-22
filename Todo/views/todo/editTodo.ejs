@@ -1,10 +1,11 @@
 <%- include("../partials/header") %>
+    <link rel="stylesheet" href="/css/add.css" type="text/css">
+    <h3 id="name">PERSONAL TODO</h3>
 
-
-    <div class="container">
-        <div class="add">
+    <div class="container row">
+        <div class="add col-md-8">
             <div>
-                Edit Task
+                <h3>Edit Task</h3>
             </div>
             <form action="/todo/<%=todo._id%>?_method=PUT" method="POST" id="myform">
                 <div class=" form-group ">

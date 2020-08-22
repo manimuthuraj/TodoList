@@ -1,10 +1,10 @@
 <%- include("../partials/header") %>
-
-
-    <div class="container">
-        <div class="add">
+    <link rel="stylesheet" href="/css/add.css" type="text/css">
+    <h2 id="name">PERSONAL TODO</h2>
+    <div class="container row">
+        <div class="add col-md-8">
             <div>
-                Add new Task
+                <h3> Add New Task</h3>
             </div>
             <form action="/todo" method="POST" id="myform">
                 <div class=" form-group ">
@@ -18,11 +18,11 @@
                 </div>
 
                 <div class=" form-group ">
-                    <label for="Name ">Expiry Date</label>
+                    <label for="Name ">Expiry Time</label>
                     <input type="time" class="form-control " id="name " name="time" placeholder="Expirye ">
                 </div>
                 <div>
-                    <button type="submit" id="submit" class="btn btn-warning ">Submit</button>
+                    <button type="submit" id="submit" class="btn btn-primary ">Add</button>
                 </div>
                 <p id="required"></p>
             </form>

@@ -1,10 +1,11 @@
 <%- include("../partials/header") %>
+    <link rel="stylesheet" href="/css/add.css" type="text/css">
 
-
-    <div class="container">
-        <div class="add">
+    <h2 id="name">TEAM TODO</h2>
+    <div class="container row">
+        <div class="add col-md-8">
             <div>
-                Add new Team Task
+                <h3>Add new Team Task</h3>
             </div>
             <form action="/teamtodo" method="POST" id="myform">
                 <div class=" form-group ">
@@ -18,7 +19,7 @@
                 </div>
 
                 <div class=" form-group ">
-                    <label for="Name ">Expiry Date</label>
+                    <label for="Name ">Expiry Time</label>
                     <input type="time" class="form-control " id="name " name="time" placeholder="Expirye ">
                 </div>
                 <div>
